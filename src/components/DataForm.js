@@ -1,5 +1,5 @@
 import React from "react";
-import { Input, DatePicker, Button, Form } from "antd";
+import { Input, DatePicker, Button, Form, Alert } from "antd";
 import moment from "moment";
 import ReactDOM from "react-dom";
 
@@ -8,6 +8,9 @@ function hasErrors(fieldsError) {
 }
 
 class UserForm extends React.Component {
+  state = {
+    alert: undefined
+  };
   handleAddData = e => {
     e.preventDefault();
 
@@ -29,6 +32,13 @@ class UserForm extends React.Component {
           hobbies: "",
           dateOfBirth: ""
         });
+        const alert = (
+          <Alert message="Data Added SuccessFully" type="success" />
+        );
+        this.setState(() => ({ alert: alert }));
+        setInterval(() => {
+          this.setState(() => ({ alert: undefined }));
+        }, 3000);
       }
     });
   };
@@ -37,8 +47,9 @@ class UserForm extends React.Component {
 
     return (
       <div className="container">
+        {alert}
         <h1>Please Fill the form</h1>
-        {}
+        {this.state.alert}
 
         <Form layout="horizontal" onSubmit={this.handleAddData} {...this.props}>
           <Form.Item>
