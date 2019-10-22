@@ -1,5 +1,5 @@
 import React from "react";
-import { Input, DatePicker, Button, Form, InputNumber } from "antd";
+import { Input, DatePicker, Button, Form } from "antd";
 import moment from "moment";
 import ReactDOM from "react-dom";
 
@@ -13,12 +13,11 @@ class UserForm extends React.Component {
 
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log(values.dateOfBirth);
         const data = {
           firstname: values.firstName,
           lastname: values.lastName,
           age: values.age,
-          // birthday: values.dateOfBirth._d,
+          birthday: values.dateOfBirth.format("LL"),
           hobbies: [values.hobbies]
         };
 
@@ -30,7 +29,6 @@ class UserForm extends React.Component {
           hobbies: "",
           dateOfBirth: ""
         });
-        console.log("Received values of form: ", values);
       }
     });
   };

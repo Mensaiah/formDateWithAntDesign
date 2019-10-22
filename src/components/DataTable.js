@@ -1,12 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Table, Tag } from "antd";
+import { Table, Tag, Button, Calendar } from "antd";
 const DataTable = props => {
   const columns = [
-    { title: "First Name", dataIndex: "firstname", key: "firstname" },
-    { title: "Last Name", dataIndex: "lastname", key: "lastname" },
-    { title: "Age", dataIndex: "age", key: "age" },
-    { title: "Birthday", dataIndex: "birthday", key: "birthday" },
+    {
+      title: "First Name",
+      dataIndex: "firstname",
+      key: "firstname"
+    },
+    {
+      title: "Last Name",
+      dataIndex: "lastname",
+      key: "lastname"
+    },
+    {
+      title: "Age",
+      dataIndex: "age",
+      key: "age"
+    },
+    {
+      title: "Birthday",
+      dataIndex: "birthday",
+      key: "birthday"
+    },
     {
       title: "Hobbies",
       dataIndex: "hobbies",
@@ -25,8 +41,6 @@ const DataTable = props => {
       )
     }
   ];
-
-  console.log(props.dataSource);
 
   return (
     <div className="table">
