@@ -21,7 +21,6 @@ export default class App extends React.Component {
 
   handleDeleteData = e => {
     e.preventDefault();
-    console.log(e);
   };
   render() {
     return (
