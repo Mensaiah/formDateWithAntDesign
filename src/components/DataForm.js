@@ -1,7 +1,7 @@
-import React from "react";
-import { Input, DatePicker, Button, Form, Alert } from "antd";
-import moment from "moment";
-import ReactDOM from "react-dom";
+import React from 'react';
+import { Input, DatePicker, Button, Form, Alert } from 'antd';
+import moment from 'moment';
+import ReactDOM from 'react-dom';
 
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some(field => fieldsError[field]);
@@ -20,17 +20,17 @@ class UserForm extends React.Component {
           firstname: values.firstName,
           lastname: values.lastName,
           age: values.age,
-          birthday: values.dateOfBirth.format("LL"),
-          hobbies: [values.hobbies]
+          birthday: values.dateOfBirth.format('LL'),
+          hobbies: values.hobbies
         };
 
         this.props.handleAddData(data);
         this.props.form.setFieldsValue({
-          firstName: "",
-          lastName: "",
-          age: "",
-          hobbies: "",
-          dateOfBirth: ""
+          firstName: '',
+          lastName: '',
+          age: '',
+          hobbies: '',
+          dateOfBirth: ''
         });
         const alert = (
           <Alert message="Data Added SuccessFully" type="success" />
@@ -54,11 +54,11 @@ class UserForm extends React.Component {
         <Form layout="horizontal" onSubmit={this.handleAddData} {...this.props}>
           <Form.Item>
             First Name:
-            {getFieldDecorator("firstName", {
+            {getFieldDecorator('firstName', {
               rules: [
                 {
                   required: true,
-                  message: "Please input your First Name"
+                  message: 'Please input your First Name'
                 }
               ]
             })(
@@ -71,11 +71,11 @@ class UserForm extends React.Component {
           </Form.Item>
           <Form.Item>
             Last Name:
-            {getFieldDecorator("lastName", {
+            {getFieldDecorator('lastName', {
               rules: [
                 {
                   required: true,
-                  message: "Please input your Last Name"
+                  message: 'Please input your Last Name'
                 }
               ]
             })(
@@ -87,11 +87,11 @@ class UserForm extends React.Component {
             )}
           </Form.Item>
           Birthday:
-          {getFieldDecorator("dateOfBirth", {
+          {getFieldDecorator('dateOfBirth', {
             rules: [
               {
                 required: true,
-                message: "Please input your Birthday"
+                message: 'Please input your Birthday'
               }
             ]
           })(
@@ -104,11 +104,11 @@ class UserForm extends React.Component {
           )}
           <Form.Item>
             Age:
-            {getFieldDecorator("age", {
+            {getFieldDecorator('age', {
               rules: [
                 {
                   required: true,
-                  message: "Please input your Age"
+                  message: 'Please input your Age'
                 }
               ]
             })(
@@ -116,12 +116,12 @@ class UserForm extends React.Component {
             )}
           </Form.Item>
           <Form.Item>
-            Hobbies:{" "}
-            {getFieldDecorator("hobbies", {
+            Hobbies:{' '}
+            {getFieldDecorator('hobbies', {
               rules: [
                 {
                   required: true,
-                  message: "Please input your hobbies"
+                  message: 'Please input your hobbies'
                 }
               ]
             })(
@@ -146,6 +146,6 @@ class UserForm extends React.Component {
   }
 }
 
-const DataForm = Form.create({ name: "dataform" })(UserForm);
+const DataForm = Form.create({ name: 'dataform' })(UserForm);
 
 export default DataForm;

@@ -1,36 +1,36 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Table, Tag, Button, Calendar } from "antd";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Table, Tag } from 'antd';
 const DataTable = props => {
   const columns = [
     {
-      title: "First Name",
-      dataIndex: "firstname",
-      key: "firstname"
+      title: 'First Name',
+      dataIndex: 'firstname',
+      key: 'firstname'
     },
     {
-      title: "Last Name",
-      dataIndex: "lastname",
-      key: "lastname"
+      title: 'Last Name',
+      dataIndex: 'lastname',
+      key: 'lastname'
     },
     {
-      title: "Age",
-      dataIndex: "age",
-      key: "age"
+      title: 'Age',
+      dataIndex: 'age',
+      key: 'age'
     },
     {
-      title: "Birthday",
-      dataIndex: "birthday",
-      key: "birthday"
+      title: 'Birthday',
+      dataIndex: 'birthday',
+      key: 'birthday'
     },
     {
-      title: "Hobbies",
-      dataIndex: "hobbies",
-      key: "hobbies",
+      title: 'Hobbies',
+      dataIndex: 'hobbies',
+      key: 'hobbies',
       render: hobbies => (
         <span>
-          {hobbies.map(hobby => {
-            let color = hobby.length > 5 ? "geekblue" : "green";
+          {hobbies.split(',').map(hobby => {
+            let color = hobby.length < 5 ? 'geekblue' : 'green';
             return (
               <Tag color={color} key={hobby}>
                 {hobby.toUpperCase()}
