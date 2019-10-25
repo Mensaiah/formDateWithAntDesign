@@ -1,16 +1,11 @@
 import React from 'react';
 import { Input, DatePicker, Button, Form, Alert } from 'antd';
-import moment from 'moment';
-import ReactDOM from 'react-dom';
 
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
 
 class UserForm extends React.Component {
-  state = {
-    alert: undefined
-  };
   handleAddData = e => {
     e.preventDefault();
 
