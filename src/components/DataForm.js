@@ -50,9 +50,9 @@ const UserForm = props => {
   const { getFieldDecorator, getFieldsError } = props.form;
   return (
     <div className="container">
-      {alert}
+     
       <h1>Please Fill the form</h1>
-      {alertDiv}
+      {alert}
 
       <Form layout="horizontal" onSubmit={handleAddData}>
         <Form.Item>
