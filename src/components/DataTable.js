@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table, Tag } from 'antd';
+import { connect } from 'react-redux';
 const DataTable = props => {
   const columns = [
     {
@@ -43,9 +44,15 @@ const DataTable = props => {
 
   return (
     <div className="table">
-      <Table dataSource={props.dataSource} columns={columns} bordered={true} />
+      <Table dataSource={props.data} columns={columns} bordered={true} />
     </div>
   );
 };
 
-export default DataTable;
+const mapStateToProps = state => ({
+  data: state.data
+});
+export default connect(
+  mapStateToProps,
+  {}
+)(DataTable);
