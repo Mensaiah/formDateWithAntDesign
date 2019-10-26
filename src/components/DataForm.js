@@ -107,7 +107,6 @@ class UserForm extends React.Component {
             ]
           })(
             <DatePicker
-              placeholder="Enter Date Of Birth"
               name="dateOfBirth"
               label="Data Of Birth"
               format="DD/MM/YYYY"
