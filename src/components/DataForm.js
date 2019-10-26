@@ -6,6 +6,12 @@ function hasErrors(fieldsError) {
 }
 
 class UserForm extends React.Component {
+  state = {
+    key: 1,
+    dataSource: [],
+    alert: undefined
+  };
+
   handleAddData = e => {
     e.preventDefault();
 
@@ -18,8 +24,18 @@ class UserForm extends React.Component {
           birthday: values.dateOfBirth.format('LL'),
           hobbies: values.hobbies
         };
+        console.log(data);
 
-        this.props.handleAddData(data);
+        data.key = this.state.key;
+        this.setState(prevState => {
+          return {
+            key: prevState.key + 1,
+            dataSource: prevState.dataSource.concat([data])
+          };
+        });
+
+        this.props.onSubmit(this.state.dataSource);
+
         this.props.form.setFieldsValue({
           firstName: '',
           lastName: '',

@@ -1,6 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./components/App";
-import "./styles/styles.scss";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App';
+import './styles/styles.scss';
+import { Provider } from 'react-redux';
+import store from './store/configureStore';
 
-ReactDOM.render(<App />, document.getElementById("app"));
+const jsx = (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
+ReactDOM.render(jsx, document.getElementById('app'));

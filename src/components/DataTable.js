@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Table, Tag } from 'antd';
 const DataTable = props => {
   const columns = [
