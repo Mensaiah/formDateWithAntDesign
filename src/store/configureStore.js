@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
 import dataReducers from '../reducers/data';
 
@@ -7,5 +7,6 @@ export default () => {
     dataReducers,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
+
   return store;
 };

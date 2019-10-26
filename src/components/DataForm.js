@@ -8,7 +8,7 @@ function hasErrors(fieldsError) {
 class UserForm extends React.Component {
   state = {
     key: 1,
-    dataSource: [],
+    data: [],
     alert: undefined
   };
 
@@ -24,24 +24,21 @@ class UserForm extends React.Component {
           birthday: values.dateOfBirth.format('LL'),
           hobbies: values.hobbies
         };
-        console.log(data);
+        this.setState(prevState => ({
+          key: prevState.key + 1,
+          dataSource: prevState.dataSource.concat(data)
+        }));
 
         data.key = this.state.key;
-        this.setState(prevState => {
-          return {
-            key: prevState.key + 1,
-            dataSource: prevState.dataSource.concat([data])
-          };
-        });
 
         this.props.onSubmit(this.state.dataSource);
-
+        console.log(this.state);
         this.props.form.setFieldsValue({
           firstName: '',
           lastName: '',
           age: '',
           hobbies: '',
-          dateOfBirth: ''
+          dateOfBirth: null
         });
         const alert = (
           <Alert message="Data Added SuccessFully" type="success" />
@@ -62,7 +59,7 @@ class UserForm extends React.Component {
         <h1>Please Fill the form</h1>
         {this.state.alert}
 
-        <Form layout="horizontal" onSubmit={this.handleAddData} {...this.props}>
+        <Form layout="horizontal" onSubmit={this.handleAddData}>
           <Form.Item>
             First Name:
             {getFieldDecorator('firstName', {
