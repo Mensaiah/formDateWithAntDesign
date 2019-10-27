@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Input, DatePicker, Button, Form, Alert } from 'antd';
 
+import { useDispatch } from 'react-redux';
+import { addData } from '../actions/data';
+
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
 
 const UserForm = props => {
- 
-
+  const dispatch = useDispatch();
   const handleAddData = e => {
     e.preventDefault();
 
@@ -25,7 +27,7 @@ const UserForm = props => {
 
         data.key = key;
 
-        props.onSubmit(data);
+        dispatch(addData(data));
 
         props.form.setFieldsValue({
           firstName: '',
@@ -50,7 +52,6 @@ const UserForm = props => {
   const { getFieldDecorator, getFieldsError } = props.form;
   return (
     <div className="container">
-     
       <h1>Please Fill the form</h1>
       {alert}
 

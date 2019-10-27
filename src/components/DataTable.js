@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table, Tag } from 'antd';
-import { connect } from 'react-redux';
-const DataTable = props => {
+import { useSelector } from 'react-redux';
+const DataTable = () => {
   const columns = [
     {
       title: 'First Name',
@@ -44,15 +44,13 @@ const DataTable = props => {
 
   return (
     <div className="table">
-      <Table dataSource={props.data} columns={columns} bordered={true} />
+      <Table
+        dataSource={useSelector(state => state.data)}
+        columns={columns}
+        bordered={true}
+      />
     </div>
   );
 };
 
-const mapStateToProps = state => ({
-  data: state.data
-});
-export default connect(
-  mapStateToProps,
-  {}
-)(DataTable);
+export default DataTable;

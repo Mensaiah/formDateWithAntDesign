@@ -1,14 +1,14 @@
 import React from 'react';
 import DataTable from './DataTable';
 import Header from './Header';
-import DataformPage from './DataformPage';
+import DataForm from './DataForm';
 
 export default class App extends React.Component {
   render() {
     return (
       <div>
         <Header />
-        <DataformPage />
+        <DataForm />
         <DataTable />
       </div>
     );
