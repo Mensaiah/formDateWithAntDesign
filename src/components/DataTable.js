@@ -4,6 +4,11 @@ import { useSelector } from 'react-redux';
 const DataTable = () => {
   const columns = [
     {
+      title: 'ID',
+      dataIndex: 'id',
+      key: 'id'
+    },
+    {
       title: 'First Name',
       dataIndex: 'firstname',
       key: 'firstname'

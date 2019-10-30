@@ -1,15 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import './styles/styles.scss';
-import { Provider, useStore } from 'react-redux';
-import configureStore from './store/configureStore';
 
-const store = configureStore();
-const jsx = (
-  <Provider store={store}>
-    <App />
-  </Provider>
-);
+import './App.css';
 
-ReactDOM.render(jsx, document.getElementById('app'));
+export default class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">App</header>
+      </div>
+    );
+  }
+}

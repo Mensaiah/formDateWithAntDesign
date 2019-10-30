@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Input, DatePicker, Button, Form, Alert } from 'antd';
-
 import { useDispatch } from 'react-redux';
 import { addData } from '../actions/data';
-
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
@@ -54,7 +52,6 @@ const UserForm = props => {
     <div className="container">
       <h1>Please Fill the form</h1>
       {alert}
-
       <Form layout="horizontal" onSubmit={handleAddData}>
         <Form.Item>
           First Name:
